@@ -3,7 +3,7 @@
 import time
 import random
 
-#Creating the player
+# Defining the player class
 class Player:
     def __init__(self, x, y, health, attack):
         self.x = 2
@@ -18,6 +18,15 @@ class Player:
         self.content = None
         self.container = None
         self.count = 0
+
+# Defining the monster class
+class Monster(object):
+    def __init__(self, name, health, attack):
+        self.name = name
+        self.health = health
+        self.attack = attack
+        self.dead = False
+
 
     #Defining the attack function, which the player will use
     def kill(self, h2):
@@ -57,9 +66,3 @@ class Player:
                 print("It just hit you for", hit, "and you have", self.health, "health left.")
 
 
-class Monster(object):
-    def __init__(self, name, health, attack):
-        self.name = name
-        self.health = health
-        self.attack = attack
-        self.dead = False
