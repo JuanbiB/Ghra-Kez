@@ -1,6 +1,6 @@
 import time
 import random
-import sentient
+import classes
 
 
 class Room(object):
@@ -25,7 +25,7 @@ class Ghostroom(object):  # Class created for when the player tries to go to pla
         self.y = y
         self.valid_directions = "none"
 
-
+# movement is based on coordinates. The dungeon is a big grid.
 def action(i, north, south, east, west):
     if i.lock == True:
 
@@ -152,16 +152,16 @@ def action(i, north, south, east, west):
                     user.x += 1
 
 # SENTIENT BEINGS
-user = sentient.Player()
-flesh_eater = sentient.Monster("Flesh Eater", 30, 10)
-necromancer = sentient.Monster("Necromancer", 35, 20)
-banshee = sentient.Monster("Banshee", 45, 15)
-lizard_king = sentient.Monster("Lizard King", 100, 5)
-mutant_earthworm = sentient.Monster("Mutant Earthworm", 60, 10)
-statue = sentient.Monster("Ancient Statue", 10, 10)
-hydra = sentient.Monster("Hydra", 60, 20)
-gladiator = sentient.Monster("Gladiator", 60, 20)
-hawk = sentient.Monster("Hawk", 65, 15)
+user = classes.Player(2, 0, 90, 0)
+flesh_eater = classes.Monster("Flesh Eater", 30, 10)
+necromancer = classes.Monster("Necromancer", 35, 20)
+banshee = classes.Monster("Banshee", 45, 15)
+lizard_king = classes.Monster("Lizard King", 100, 5)
+mutant_earthworm = classes.Monster("Mutant Earthworm", 60, 10)
+statue = classes.Monster("Ancient Statue", 10, 10)
+hydra = classes.Monster("Hydra", 60, 20)
+gladiator = classes.Monster("Gladiator", 60, 20)
+hawk = classes.Monster("Hawk", 65, 15)
 
 # This is the actual output the player will read, which will guide him.
 # first_room
@@ -520,14 +520,21 @@ List = [first_room, second_room, third_room, fourth_room, fifth_room, sixth_room
 
 
 def move():
+    while True:
+        print("Welcome to Ghra-Kez! If you need help figuring things out just type 'help' once you begin the game. Type 'start' to begin!");
+        d = input("> ")
+        if (d == "start"):
+            break
+
+    print()
     # The variable won will change once you finish the game.
     print("One day you're strolling aimlessly around the woods because, well, you feel like it.")
     print("The air is fresh and sunlight pierces the green foliage, giving everything a serene, green glow.")
     print("You're life's been quite easy, and you know little of hardship, yet, you fancy yourself a strong and knowledgeable human being.")
-    print("Suddenly, from behind a bush appears a little red-haired boy who opens his mouth and says with an adult voice: ")
+    print("Suddenly, from behind a bush appears a little red-haired boy who with rumbling deep voice: ")
     print("'You have grown lax your entire life, and have not taken time to appreciate adversity - for that you'll face Ghra-Kez.'")
     print("He then wriggles his fingers at you and you stifle a laugh, only for it to become a scream of agony as you lose consciousness... ")
-    #time.sleep(5)
+    time.sleep(5)
     won = False
     print()
     while not won:

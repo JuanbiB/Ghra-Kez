@@ -3,24 +3,14 @@
 import time
 import random
 
-#Creating the basic level of sentient beings in the game
-
-
-class being:
-
-    def __init__(self, x, y, health, attack):
-        self.x = x
-        self.y = y
-        self.health = health
-        self.attack = attack
-
-
 #Creating the player
-class Player(being):
-    
-    def __init__(self):
-        super().__init__(2, 0, 90, 0)
-        #2,0
+class Player:
+    def __init__(self, x, y, health, attack):
+        self.x = 2
+        self.y = 0
+        self.health = 90
+        self.attack = 0
+
         self.key = 0
         self.armor = 0
         self.startup = 0
